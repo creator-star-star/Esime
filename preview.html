@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hayat Arkadaşıma</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:
+    radial-gradient(circle at 20% 20%, rgba(212,175,55,.08) 0%, transparent 30%),
+    radial-gradient(circle at 80% 70%, rgba(212,175,55,.06) 0%, transparent 35%),
+    linear-gradient(135deg,#0f172a,#172033,#0f172a);
+
+    color:#f8f5ee;
+    font-family:Georgia, serif;
+    min-height:100vh;
+    position:relative;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 100 100'%3E%3Cpath d='M50 85 C20 60 5 45 5 25 C5 10 15 0 30 0 C40 0 47 5 50 12 C53 5 60 0 70 0 C85 0 95 10 95 25 C95 45 80 60 50 85Z' fill='none' stroke='%23d4af37' stroke-width='1.2' opacity='0.12'/%3E%3C/svg%3E");
+
+    background-size:120px 120px;
+    background-repeat:repeat;
+
+    pointer-events:none;
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background:radial-gradient(circle at center, rgba(212,175,55,.04), transparent 70%);
+    pointer-events:none;
+    z-index:-1;
+}
+
+.page{
+    display:none;
+    min-height:100vh;
+    padding:60px 20px;
+}
+
+.page.active{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    max-width:900px;
+    width:100%;
+    text-align:center;
+}
+
+h1{
+    color:#d4af37;
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+h2{
+    color:#d4af37;
+    margin-bottom:25px;
+    font-size:2rem;
+}
+
+.subtitle{
+    color:#cbd5e1;
+    font-size:1.2rem;
+    margin-bottom:50px;
+}
+
+.buttons{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+}
+
+button{
+    background:#1e293b;
+    color:white;
+    border:1px solid #d4af37;
+    padding:18px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:.3s;
+    font-size:1rem;
+}
+
+button:hover{
+    background:#d4af37;
+    color:#111;
+}
+
+.content{
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(8px);
+    border:1px solid rgba(212,175,55,.35);
+    padding:40px;
+    border-radius:18px;
+    line-height:1.9;
+    font-size:1.15rem;
+    text-align:left;
+    box-shadow:0 0 30px rgba(212,175,55,.08);
+}
+
+.back{
+    margin-top:30px;
+}
+
+.back button{
+    width:220px;
+}
+</style>
+</head>
+<body>
+
+<!-- ANA SAYFA -->
+
+<div id="home" class="page active">
+    <div class="container">
+        <h1>Hayat Arkadaşıma</h1>
+
+        <p class="subtitle">
+            Birlikte geçen yılların ardından söylemek istediğim birkaç şey var.
+        </p>
+
+        <div class="buttons">
+            <button onclick="openPage('tesekkur')">Teşekkür Ederim</button>
+            <button onclick="openPage('saygi')">Sana Duyduğum Saygı</button>
+            <button onclick="openPage('hayat')">Kurduğumuz Hayat</button>
+            <button onclick="openPage('zor')">Zor Günlerimiz</button>
+            <button onclick="openPage('bugun')">Bugün</button>
+            <button onclick="openPage('son')">Son Söz</button>
+        </div>
+    </div>
+</div>
+
+<!-- TEŞEKKÜR -->
+
+<div id="tesekkur" class="page">
+    <div class="container">
+        <h2>Teşekkür Ederim</h2>
+
+        <div class="content">
+            İnsan bazı teşekkürleri yıllarca içinde taşır.
+
+            <br><br>
+
+            Kurduğumuz yuvaya verdiğin emek,
+            gösterdiğin sabır ve ailemiz için yaptığın
+            fedakârlıklar için sana teşekkür ederim.
+
+            <br><br>
+
+            Belki her zaman söylemedim,
+            ama değerini her zaman bildim.
+        </div>
+
+        <div class="back">
+            <button onclick="goHome()">Ana Sayfaya Dön</button>
+        </div>
+    </div>
+</div>
+
+<!-- SAYGI -->
+
+<div id="saygi" class="page">
+    <div class="container">
+        <h2>Sana Duyduğum Saygı</h2>
+
+        <div class="content">
+            Yıllar geçtikçe insan bazı şeyleri daha iyi anlıyor.
+
+            <br><br>
+
+            Sana duyduğum sevginin yanında,
+            karakterine ve duruşuna duyduğum saygı da büyüdü.
+
+            <br><br>
+
+            Gücün, sabrın ve ailemize sahip çıkışın
+            her zaman takdir ettiğim özelliklerin oldu.
+        </div>
+
+        <div class="back">
+            <button onclick="goHome()">Ana Sayfaya Dön</button>
+        </div>
+    </div>
+</div>
+
+<!-- HAYAT -->
+
+<div id="hayat" class="page">
+    <div class="container">
+        <h2>Kurduğumuz Hayat</h2>
+
+        <div class="content">
+            Hiçbir şey bir günde kurulmadı.
+
+            <br><br>
+
+            Bu ev,
+            bu aile,
+            bu düzen...
+
+            <br><br>
+
+            Hepsi yılların emeğiyle ortaya çıktı.
+
+            <br><br>
+
+            Bugün geriye baktığımda,
+            birlikte inşa ettiğimiz hayatla gurur duyuyorum.
+        </div>
+
+        <div class="back">
+            <button onclick="goHome()">Ana Sayfaya Dön</button>
+        </div>
+    </div>
+</div>
+
+<!-- ZOR GÜNLER -->
+
+<div id="zor" class="page">
+    <div class="container">
+        <h2>Zor Günlerimiz</h2>
+
+        <div class="content">
+            Her zaman her şey kolay olmadı.
+
+            <br><br>
+
+            Yorulduğumuz,
+            üzüldüğümüz,
+            endişelendiğimiz zamanlar oldu.
+
+            <br><br>
+
+            Ama dönüp baktığımda aklımda kalan şey,
+            birbirimize sırt çevirmemiş olmamız.
+        </div>
+
+        <div class="back">
+            <button onclick="goHome()">Ana Sayfaya Dön</button>
+        </div>
+    </div>
+</div>
+
+<!-- BUGÜN -->
+
+<div id="bugun" class="page">
+    <div class="container">
+        <h2>Bugün</h2>
+
+        <div class="content">
+            Yıllar bana bir şeyi öğretti.
+
+            <br><br>
+
+            İnsan hayatında yanında kimin yürüdüğünü
+            zamanla daha iyi anlıyor.
+
+            <br><br>
+
+            Ben bu konuda kendimi şanslı hissediyorum.
+        </div>
+
+        <div class="back">
+            <button onclick="goHome()">Ana Sayfaya Dön</button>
+        </div>
+    </div>
+</div>
+
+<!-- SON -->
+
+<div id="son" class="page">
+    <div class="container">
+        <h2>Son Söz</h2>
+
+        <div class="content">
+            Hayatım boyunca verdiğim en doğru kararlardan biri,
+            hayatımı seninle birleştirmekti.
+
+            <br><br>
+
+            Birlikte geçirdiğimiz tüm yıllar için teşekkür ederim.
+
+            <br><br>
+
+            Evlilik yıl dönümümüz kutlu olsun.
+
+            <br><br>
+
+            İyi ki hayat arkadaşımsın.
+        </div>
+
+        <div class="back">
+            <button onclick="goHome()">Ana Sayfaya Dön</button>
+        </div>
+    </div>
+</div>
+
+<script>
+function openPage(id){
+    document.querySelectorAll('.page').forEach(page=>{
+        page.classList.remove('active');
+    });
+
+    document.getElementById(id).classList.add('active');
+}
+
+function goHome(){
+    document.querySelectorAll('.page').forEach(page=>{
+        page.classList.remove('active');
+    });
+
+    document.getElementById('home').classList.add('active');
+}
+</script>
+
+</body>
+</html>
